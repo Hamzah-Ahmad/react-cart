@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Hamzah-Ahmad/react-cart.git/static/css/main.9afb1179.chunk.css",
+    "main.js": "/Hamzah-Ahmad/react-cart.git/static/js/main.8d92177d.chunk.js",
+    "main.js.map": "/Hamzah-Ahmad/react-cart.git/static/js/main.8d92177d.chunk.js.map",
+    "runtime-main.js": "/Hamzah-Ahmad/react-cart.git/static/js/runtime-main.9afc0bc9.js",
+    "runtime-main.js.map": "/Hamzah-Ahmad/react-cart.git/static/js/runtime-main.9afc0bc9.js.map",
+    "static/css/2.7aa6f31f.chunk.css": "/Hamzah-Ahmad/react-cart.git/static/css/2.7aa6f31f.chunk.css",
+    "static/js/2.758fe13c.chunk.js": "/Hamzah-Ahmad/react-cart.git/static/js/2.758fe13c.chunk.js",
+    "static/js/2.758fe13c.chunk.js.map": "/Hamzah-Ahmad/react-cart.git/static/js/2.758fe13c.chunk.js.map",
+    "index.html": "/Hamzah-Ahmad/react-cart.git/index.html",
+    "precache-manifest.2d8563d58f59edb59d81f7c3ac1de04b.js": "/Hamzah-Ahmad/react-cart.git/precache-manifest.2d8563d58f59edb59d81f7c3ac1de04b.js",
+    "service-worker.js": "/Hamzah-Ahmad/react-cart.git/service-worker.js",
+    "static/css/2.7aa6f31f.chunk.css.map": "/Hamzah-Ahmad/react-cart.git/static/css/2.7aa6f31f.chunk.css.map",
+    "static/css/main.9afb1179.chunk.css.map": "/Hamzah-Ahmad/react-cart.git/static/css/main.9afb1179.chunk.css.map",
+    "static/media/blue-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/blue-t-shirt.48813ff8.jpg",
+    "static/media/bright-purple-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/bright-purple-t-shirt.4a90ea8f.jpg",
+    "static/media/cobalt-blue-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/cobalt-blue-t-shirt.ca70427b.jpg",
+    "static/media/green-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/green-t-shirt.589ef24f.jpg",
+    "static/media/grey-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/grey-t-shirt.802b0dfc.jpg",
+    "static/media/light-green-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/light-green-t-shirt.3da309c1.jpg",
+    "static/media/purple-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/purple-t-shirt.d7965239.jpg",
+    "static/media/red-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/red-t-shirt.1ceb8325.jpg",
+    "static/media/teal-t-shirt.jpg": "/Hamzah-Ahmad/react-cart.git/static/media/teal-t-shirt.b519365c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9afc0bc9.js",
+    "static/css/2.7aa6f31f.chunk.css",
+    "static/js/2.758fe13c.chunk.js",
+    "static/css/main.9afb1179.chunk.css",
+    "static/js/main.8d92177d.chunk.js"
+  ]
+}
