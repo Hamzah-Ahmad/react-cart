@@ -6,6 +6,13 @@
   height: 40vmin;
 }
 
+.cart-img {
+  width: 50%;
+}
+
+.cart-list-header {
+  font-size: 40px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -19,4 +26,13 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+@media screen and (max-width: 580px) {
+  .cart-img {
+    width: 80%;
+  }
+  .cart-list-header {
+    font-size: 20px;
+  }
 }

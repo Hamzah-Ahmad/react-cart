@@ -46,10 +46,14 @@ const Product = props => {
         <CardBody>
           <CardTitle>{product.name}</CardTitle>
           <CardText>
-            Size: {product.size} Price: ${product.price}
+            Size: <strong>{product.size}</strong> |{" "}
+            <span style={{ marginLeft: "2px" }}>Price: </span>
+            <strong>${product.price}</strong>
           </CardText>
 
-          <Button onClick={addFunc}>Add To Cart</Button>
+          <Button onClick={addFunc} outline color="info">
+            Add To Cart
+          </Button>
         </CardBody>
       </Card>
     </div>

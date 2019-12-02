@@ -84,7 +84,7 @@ const NavBar = props => {
                             <ListGroupItemHeading>
                               <span
                                 style={{
-                                  width: "7em",
+                                  width: "8em",
                                   display: "inline-block"
                                 }}
                               >

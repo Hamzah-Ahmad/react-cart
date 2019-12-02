@@ -55,18 +55,16 @@ const CartPage = props => {
                   <Row>
                     <Col xs="8">
                       <ListGroupItemHeading>
-                        <span
-                          style={
-                            {
-                              //width: "7em",
-                              //display: "inline-block"
-                            }
-                          }
-                        >
+                        <span className="cart-list-header">
                           {item.product.name}
                         </span>
                       </ListGroupItemHeading>
-                      <ListGroupItemText style={{ marginTop: "30px" }}>
+                      <ListGroupItemText>
+                        Size: <strong>{item.product.size}</strong> |{" "}
+                        <span style={{ marginLeft: "2px" }}>Price: </span>
+                        <strong>${item.product.price}</strong>
+                      </ListGroupItemText>
+                      <ListGroupItemText>
                         Quantity:
                         <Button
                           outline
@@ -110,8 +108,7 @@ const CartPage = props => {
                     <Col xs="4">
                       <img
                         src={item.product.image}
-                        style={{ width: "50%" }}
-                        className="float-right"
+                        className="float-right cart-img"
                         alt={item.product.name}
                       />
                     </Col>
@@ -131,10 +128,9 @@ const CartPage = props => {
 
             <Button
               size="lg"
-              outline
               color="info"
               block
-              style={{ marginTop: "30px" }}
+              style={{ marginTop: "30px", marginBottom: "30px" }}
               onClick={toggle}
             >
               Complete Checkout
