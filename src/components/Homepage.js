@@ -18,7 +18,6 @@ const Homepage = props => {
 
   useEffect(
     () => {
-      // console.log("Ran");
       props.dispatch(getAllProducts(size, price));
     }, // eslint-disable-next-line
     []
@@ -26,7 +25,6 @@ const Homepage = props => {
 
   useEffect(
     () => {
-      // console.log(` price: ${price}`);
       props.dispatch({
         type: "GET_FILTERED_PRODUCTS",
         payload: { size, price }
@@ -36,7 +34,6 @@ const Homepage = props => {
   );
   useEffect(
     () => {
-      // console.log(` size: ${size}`);
       props.dispatch({
         type: "GET_FILTERED_PRODUCTS",
         payload: { size, price }
@@ -91,11 +88,6 @@ const Homepage = props => {
               // style={{ width: "40%" }}
               onChange={e => {
                 setSize(e.target.value);
-                // console.log(`e : ${e.target.value} size: ${size}`);
-                // props.dispatch({
-                //   type: "GET_FILTERED_PRODUCTS",
-                //   payload: { size, price }
-                // });
               }}
             >
               <option value="">All Sizes</option>
