@@ -63,7 +63,7 @@ const NavBar = props => {
             <Nav className="ml-auto" navbar>
               <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle nav caret style={{ paddingRight: "20px" }}>
-                  <Badge pill color="secondary">
+                  <Badge pill color="info">
                     {props.addedItems.reduce(
                       (accumulator, currentValue) =>
                         accumulator + currentValue.quantity,
