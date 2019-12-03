@@ -100,8 +100,10 @@ const NavBar = props => {
                                 }}
                               />
                             </ListGroupItemHeading>
-                            <ListGroupItemText>
-                              Quantity {item.quantity}
+                            <ListGroupItemText style={{ marginTop: "0px" }}>
+                              Size: <strong>{item.product.size}</strong>
+                              <span style={{ margin: "0px 10px" }}></span>
+                              Quantity: <strong> {item.quantity}</strong>
                             </ListGroupItemText>
                           </ListGroupItem>
                         </DropdownItem>
