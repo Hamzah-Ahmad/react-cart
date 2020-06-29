@@ -7,15 +7,15 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  Button
+  Button,
 } from "reactstrap";
 
-const Product = props => {
+const Product = (props) => {
   const { product } = props;
 
-  const searchArray = obj => {
+  const searchArray = (obj) => {
     let found = false;
-    if (props.addedItems.some(objInCart => objInCart.product.id === obj.id)) {
+    if (props.addedItems.some((objInCart) => objInCart.product.id === obj.id)) {
       found = true;
     }
     return found;
@@ -24,12 +24,12 @@ const Product = props => {
     if (!searchArray(product)) {
       props.dispatch({
         type: "ADD_TO_CART",
-        payload: product
+        payload: product,
       });
     } else {
       props.dispatch({
         type: "INCREASE_QUANTITY",
-        payload: product
+        payload: product,
       });
     }
   };
@@ -39,7 +39,7 @@ const Product = props => {
         style={{
           height: "30%",
           //padding: "40px 0px 0px 20px",
-          margin: "10px"
+          margin: "10px",
         }}
       >
         <CardImg src={product.image} alt="Product" style={{ width: "100%" }} />
@@ -60,9 +60,9 @@ const Product = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    addedItems: state.cartReducer.addedItems
+    addedItems: state.cartReducer.addedItems,
   };
 };
 export default connect(mapStateToProps)(Product);

@@ -17,10 +17,10 @@ import {
   DropdownItem,
   Container,
   NavbarToggler,
-  Dropdown
+  Dropdown,
 } from "reactstrap";
 
-const NavBar = props => {
+const NavBar = (props) => {
   const { addedItems } = props;
 
   //Code For Collapse
@@ -29,17 +29,10 @@ const NavBar = props => {
 
   //Code For DropDown
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggle = e => {
+  const toggle = (e) => {
     if (e.target.classList.contains("dropdown-toggle")) {
-      setDropdownOpen(prevState => !prevState);
+      setDropdownOpen((prevState) => !prevState);
     }
-  };
-
-  const sortAddeditems = arr => {
-    arr.sort((a, b) => {
-      return a.product.name > b.product.name ? 1 : -1;
-    });
-    return arr;
   };
 
   return (
@@ -52,7 +45,7 @@ const NavBar = props => {
             style={{
               textDecoration: "none",
               color: "#7c7c7d",
-              fontSize: "30px"
+              fontSize: "30px",
             }}
           >
             ReactCart
@@ -78,14 +71,14 @@ const NavBar = props => {
                 <DropdownMenu right style={{ margin: "0" }}>
                   {addedItems.length > 0 ? (
                     <ListGroup flush>
-                      {sortAddeditems(addedItems).map(item => (
+                      {addedItems.map((item) => (
                         <DropdownItem key={item.product.id}>
                           <ListGroupItem>
                             <ListGroupItemHeading>
                               <span
                                 style={{
                                   width: "8em",
-                                  display: "inline-block"
+                                  display: "inline-block",
                                 }}
                               >
                                 {item.product.name}
@@ -96,7 +89,7 @@ const NavBar = props => {
                                 style={{
                                   width: "30%",
                                   marginLeft: "40px",
-                                  marginRight: "40px"
+                                  marginRight: "40px",
                                 }}
                               />
                             </ListGroupItemHeading>
@@ -131,9 +124,9 @@ const NavBar = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    addedItems: state.cartReducer.addedItems
+    addedItems: state.cartReducer.addedItems,
   };
 };
 

@@ -11,19 +11,12 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  Col
+  Col,
 } from "reactstrap";
 
 import NavBar from "./NavBar";
 
-const CartPage = props => {
-  const sortAddedItems = arr => {
-    arr.sort((a, b) => {
-      return a.product.name > b.product.name ? 1 : -1;
-    });
-    return arr;
-  };
-
+const CartPage = (props) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -50,7 +43,7 @@ const CartPage = props => {
         {props.addedItems.length > 0 ? (
           <div>
             <ListGroup>
-              {sortAddedItems(props.addedItems).map(item => (
+              {props.addedItems.map((item) => (
                 <ListGroupItem key={Math.random()}>
                   <Row>
                     <Col xs="8">
@@ -73,7 +66,7 @@ const CartPage = props => {
                           onClick={() => {
                             props.dispatch({
                               type: "DECREASE_QUANTITY",
-                              payload: item.product
+                              payload: item.product,
                             });
                           }}
                           style={{ marginLeft: "10px", borderRadius: "50px" }}
@@ -93,7 +86,7 @@ const CartPage = props => {
                           onClick={() => {
                             props.dispatch({
                               type: "INCREASE_QUANTITY",
-                              payload: item.product
+                              payload: item.product,
                             });
                           }}
                           style={{ marginLeft: "10px", borderRadius: "50px" }}
@@ -120,7 +113,7 @@ const CartPage = props => {
               style={{
                 textAlign: "right",
                 paddingRight: "5%",
-                marginTop: "20px"
+                marginTop: "20px",
               }}
             >
               Total: ${total}
@@ -161,9 +154,9 @@ const CartPage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    addedItems: state.cartReducer.addedItems
+    addedItems: state.cartReducer.addedItems,
   };
 };
 

@@ -5,12 +5,12 @@ import { Container, Row, Col, Input, Label, CustomInput } from "reactstrap";
 import NavBar from "./NavBar";
 
 import {
-  getAllProducts
+  getAllProducts,
   // getProductsByPrice,
   // getProductsBySize
 } from "../actions/homepageActions";
 
-const Homepage = props => {
+const Homepage = (props) => {
   // eslint-disable-next-line
   //const [filter, setFilter] = useState(false);
   const [size, setSize] = useState("");
@@ -27,19 +27,10 @@ const Homepage = props => {
     () => {
       props.dispatch({
         type: "GET_FILTERED_PRODUCTS",
-        payload: { size, price }
+        payload: { size, price },
       });
     }, // eslint-disable-next-line
-    [price]
-  );
-  useEffect(
-    () => {
-      props.dispatch({
-        type: "GET_FILTERED_PRODUCTS",
-        payload: { size, price }
-      });
-    }, // eslint-disable-next-line
-    [size]
+    [price, size]
   );
 
   return (
@@ -62,7 +53,7 @@ const Homepage = props => {
               name="priceRange"
               id="priceRange"
               defaultValue="320"
-              onChange={e => {
+              onChange={(e) => {
                 setPrice(e.target.value);
               }}
               step="10"
@@ -86,7 +77,7 @@ const Homepage = props => {
               name="select"
               id="size"
               // style={{ width: "40%" }}
-              onChange={e => {
+              onChange={(e) => {
                 setSize(e.target.value);
               }}
             >
@@ -99,7 +90,7 @@ const Homepage = props => {
           </Col>
           <Col xs="12" lg="10">
             <Row style={{ marginTop: "50px" }}>
-              {props.products.map(product => (
+              {props.products.map((product) => (
                 <Col xs="12" sm="6" md="4" key={product.id}>
                   <Product product={product} />
                 </Col>
@@ -112,10 +103,10 @@ const Homepage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     products: state.homepageReducer.products,
-    addedItems: state.cartReducer.addedItems
+    addedItems: state.cartReducer.addedItems,
   };
 };
 
