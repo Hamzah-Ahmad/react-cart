@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Product from "./Product";
+import CartPage from "./CartPage";
+import Slider from "@material-ui/core/Slider";
+import Drawer from "@material-ui/core/Drawer";
 import { Container, Row, Col, Input, Label, CustomInput } from "reactstrap";
 import NavBar from "./NavBar";
 
@@ -15,6 +18,15 @@ const Homepage = (props) => {
   //const [filter, setFilter] = useState(false);
   const [size, setSize] = useState("");
   const [price, setPrice] = useState(320);
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   useEffect(
     () => {
@@ -33,41 +45,72 @@ const Homepage = (props) => {
     [price, size]
   );
 
-  return (
-    <div>
-      <NavBar />
+  const marks = [
+    {
+      value: 110,
+      label: "$110",
+    },
+    {
+      value: 200,
+      label: "$200",
+    },
+    {
+      value: 320,
+      label: "$320",
+    },
+  ];
 
+  return (
+    <div style={{ scrollbarWidth: "none" }}>
+      <NavBar handleDrawerOpen={handleDrawerOpen} />
       <Container>
+        <Drawer
+          // className={classes.drawer}
+          variant="persistent"
+          anchor="right"
+          open={open}
+          // classes={{
+          //   paper: classes.drawerPaper,
+          // }}
+        >
+          <CartPage handleDrawerClose={handleDrawerClose} />
+        </Drawer>
         <Row>
           <Col xs="6" lg="2">
             <h3 style={{ marginTop: "50px" }}>Filters:</h3>
             <Label for="priceRange" style={{ marginTop: "20px" }}>
               Max Price:{" "}
-              <span style={{ color: "green", marginLeft: "10px" }}>
+              <span style={{ color: "#17abcd", marginLeft: "5px" }}>
                 ${price}
               </span>
             </Label>
-            <CustomInput
-              tooltip="true"
-              type="range"
-              name="priceRange"
-              id="priceRange"
-              defaultValue="320"
-              onChange={(e) => {
-                setPrice(e.target.value);
+            <Slider
+              // tooltip="true"
+              // type="range"
+              // name="priceRange"
+              // id="priceRange"
+              // defaultValue="320"
+              aria-labelledby="discrete-slider"
+              valueLabelDisplay="auto"
+              onChange={(e, v) => {
+                console.log("test");
+                console.log(v);
+                setPrice(v);
               }}
-              step="10"
-              max="320"
-              min="110"
+              step={10}
+              max={320}
+              min={110}
+              marks={marks}
+              defaultValue={320}
             />
-            <Row>
+            {/* <Row>
               <Col xs="6">
                 <small>$110</small>
               </Col>
               <Col xs="6">
                 <small className="float-right">$320</small>
               </Col>
-            </Row>
+            </Row> */}
 
             <Label for="size" style={{ marginTop: "30px" }}>
               Size:
@@ -87,6 +130,20 @@ const Homepage = (props) => {
               <option value="L">Large</option>
               <option value="XL">XL</option>
             </Input>
+            {/* <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={""}
+              onChange={(e) => {
+                setSize(e.target.value);
+              }}
+            >
+              <MenuItem value={""}>All Sizes</MenuItem>
+              <MenuItem value={"S"}>Small</MenuItem>
+              <MenuItem value={"M"}>Thirty</MenuItem>
+              <MenuItem value={"L"}>Thirty</MenuItem>
+              <MenuItem value={"XL"}>Thirty</MenuItem>
+            </Select> */}
           </Col>
           <Col xs="12" lg="10">
             <Row style={{ marginTop: "50px" }}>

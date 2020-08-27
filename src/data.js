@@ -14,71 +14,71 @@ const productData = [
     size: "S",
     name: "Blue T-Shirt",
     price: 110,
-    image: Blue
+    image: Blue,
   },
   {
     id: 202,
     size: "S",
     name: "Bright Purple T-Shirt",
     price: 120,
-    image: BrightPurple
+    image: BrightPurple,
   },
   {
     id: 203,
     size: "M",
     name: "Cobalt Blue T-Shirt",
     price: 170,
-    image: CobaltBlue
+    image: CobaltBlue,
   },
   {
     id: 204,
     size: "M",
     name: "Green T-shirt",
     price: 230,
-    image: Green
+    image: Green,
   },
   {
     id: 205,
     size: "M",
     name: "Grey T-shirt",
     price: 260,
-    image: Grey
+    image: Grey,
   },
   {
     id: 206,
     size: "L",
     name: "Light Green T-shirt",
     price: 200,
-    image: LightGreen
+    image: LightGreen,
   },
   {
     id: 207,
     size: "L",
     name: "Purple T-shirt",
     price: 130,
-    image: Purple
+    image: Purple,
   },
   {
     id: 208,
     size: "M",
     name: "Red T-shirt",
     price: 300,
-    image: Red
+    image: Red,
   },
   {
     id: 209,
     size: "XL",
     name: "Teal T-shirt",
     price: 320,
-    image: Teal
+    image: Teal,
   },
   {
     id: 210,
     size: "S",
     name: "Red T-shirt",
     price: 320,
-    image: Red
-  }
+    image: Red,
+  },
 ];
 
 export default productData;

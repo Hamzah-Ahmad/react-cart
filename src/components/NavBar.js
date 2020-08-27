@@ -19,29 +19,29 @@ import {
   NavbarToggler,
   Dropdown,
 } from "reactstrap";
+import IconButton from "@material-ui/core/IconButton";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const NavBar = (props) => {
   const { addedItems } = props;
 
-  //Code For Collapse
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleCollapse = () => setIsOpen(!isOpen);
+  // //Code For Collapse
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggleCollapse = () => setIsOpen(!isOpen);
 
-  //Code For DropDown
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggle = (e) => {
-    if (e.target.classList.contains("dropdown-toggle")) {
-      setDropdownOpen((prevState) => !prevState);
-    }
-  };
+  // //Code For DropDown
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const toggle = (e) => {
+  //   if (e.target.classList.contains("dropdown-toggle")) {
+  //     setDropdownOpen((prevState) => !prevState);
+  //   }
+  // };
 
   return (
     <div>
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand
-            tag={Link}
-            to="/"
+          <h1
             style={{
               textDecoration: "none",
               color: "#7c7c7d",
@@ -49,9 +49,14 @@ const NavBar = (props) => {
             }}
           >
             ReactCart
-          </NavbarBrand>
-          {/* <NavbarToggler onClick={toggle} /> */}
-          <NavbarToggler onClick={toggleCollapse} />
+          </h1>
+          <Nav className="ml-auto" navbar>
+            <IconButton onClick={props.handleDrawerOpen}>
+              <ShoppingCartIcon />
+            </IconButton>
+          </Nav>
+          {/* Navbar */}
+          {/* <NavbarToggler onClick={toggleCollapse} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -117,8 +122,9 @@ const NavBar = (props) => {
                 Checkout Page <i className="fa fa-angle-right"></i>
               </Button>
             </Nav>
-          </Collapse>
+          </Collapse> */}
         </Container>
+        {/* Navbar end */}
       </Navbar>
     </div>
   );

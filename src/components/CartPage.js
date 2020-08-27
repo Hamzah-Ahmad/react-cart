@@ -13,8 +13,12 @@ import {
   ModalBody,
   Col,
 } from "reactstrap";
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
 
 const CartPage = (props) => {
   const [total, setTotal] = useState(0);
@@ -34,19 +38,45 @@ const CartPage = (props) => {
 
   const toggle = () => setModal(!modal);
   return (
-    <div>
-      <NavBar />
-      <Container>
-        <h1 className="display-4 text-center" style={{ margin: "30px 0" }}>
-          Checkout Page
-        </h1>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        overflowX: "hidden",
+        scrollbarWidth: "thin",
+      }}
+    >
+      <div>
+        <div
+          className="text-center"
+          style={{ margin: "60px", marginTop: "30px", marginBottom: "30px" }}
+        >
+          <IconButton
+            onClick={props.handleDrawerClose}
+            style={{ position: "absolute", left: 0 }}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+          <span style={{ fontSize: "25px", marginRight: "10px" }}>
+            Your Cart
+          </span>
+
+          <i className="fa fa-shopping-cart" style={{ fontSize: "25px" }}></i>
+        </div>
         {props.addedItems.length > 0 ? (
           <div>
             <ListGroup>
               {props.addedItems.map((item) => (
                 <ListGroupItem key={Math.random()}>
-                  <Row>
-                    <Col xs="8">
+                  {/* <Row>
+                    <Col xs="8"> */}
+                  <span
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <span>
                       <ListGroupItemHeading>
                         <span className="cart-list-header">
                           {item.product.name}
@@ -58,8 +88,9 @@ const CartPage = (props) => {
                         <strong>${item.product.price}</strong>
                       </ListGroupItemText>
                       <ListGroupItemText>
-                        Quantity:
-                        <Button
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          Quantity:
+                          {/* <Button
                           outline
                           color="danger"
                           size="sm"
@@ -69,17 +100,26 @@ const CartPage = (props) => {
                               payload: item.product,
                             });
                           }}
-                          style={{ marginLeft: "10px", borderRadius: "50px" }}
+                          style={{ borderRadius: "50px" }}
                         >
                           <i
                             className="fa fa-minus"
                             style={{ fontSize: "12px" }}
                           ></i>
-                        </Button>
-                        <span style={{ marginLeft: "10px" }}>
-                          {item.quantity}
-                        </span>
-                        <Button
+                        </Button> */}
+                          <IconButton
+                            aria-label="delete"
+                            onClick={() => {
+                              props.dispatch({
+                                type: "DECREASE_QUANTITY",
+                                payload: item.product,
+                              });
+                            }}
+                          >
+                            <RemoveIcon />
+                          </IconButton>
+                          <span>{item.quantity}</span>
+                          {/* <Button
                           outline
                           color="warning"
                           size="sm"
@@ -95,17 +135,35 @@ const CartPage = (props) => {
                             className="fa fa-plus"
                             style={{ fontSize: "12px" }}
                           ></i>
-                        </Button>
+                        </Button> */}
+                          <IconButton
+                            aria-label="delete"
+                            onClick={() => {
+                              props.dispatch({
+                                type: "INCREASE_QUANTITY",
+                                payload: item.product,
+                              });
+                            }}
+                          >
+                            <AddIcon />
+                          </IconButton>
+                        </div>
                       </ListGroupItemText>
-                    </Col>
-                    <Col xs="4">
+                      {/* </Col> */}
+                      {/* <Col xs="4"> */}
+                    </span>
+                    <span>
                       <img
                         src={item.product.image}
-                        className="float-right cart-img"
+                        // width={10}
+                        // height={10}
+                        className="cart-img"
                         alt={item.product.name}
                       />
-                    </Col>
-                  </Row>
+                    </span>
+                  </span>
+                  {/* </Col>
+                  </Row> */}
                 </ListGroupItem>
               ))}
             </ListGroup>
@@ -118,12 +176,15 @@ const CartPage = (props) => {
             >
               Total: ${total}
             </h3>
-
+            {/* 
             <Button
               size="lg"
               color="info"
               block
-              style={{ marginTop: "30px", marginBottom: "30px" }}
+              style={{
+                position: "absolute",
+                bottom: 0,
+              }}
               onClick={toggle}
             >
               Complete Checkout
@@ -137,19 +198,38 @@ const CartPage = (props) => {
                 </span>
                 <div>Thank you for shopping with us!</div>
               </ModalBody>
-            </Modal>
+            </Modal> */}
           </div>
         ) : (
           <div>
-            <h1
-              className="display-4"
-              style={{ textAlign: "center", marginTop: "20vh" }}
-            >
+            <div style={{ textAlign: "center", fontSize: "18px" }}>
               Your cart is empty
-            </h1>
+            </div>
           </div>
         )}
-      </Container>
+
+        <Button
+          size="lg"
+          color={props.addedItems.length > 0 ? "info" : undefined}
+          block
+          style={{
+            position: "absolute",
+            bottom: 0,
+          }}
+          onClick={toggle}
+          disabled={!props.addedItems.length > 0}
+        >
+          Complete Checkout
+        </Button>
+        <Modal isOpen={modal} toggle={toggle}>
+          <ModalHeader>Checkout</ModalHeader>
+          <ModalBody>
+            Your total is:{" "}
+            <span style={{ marginLeft: "5px", color: "green" }}>${total}</span>
+            <div>Thank you for shopping with us!</div>
+          </ModalBody>
+        </Modal>
+      </div>
     </div>
   );
 };
