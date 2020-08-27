@@ -58,7 +58,10 @@ const cartReducer = (state = initialState, action) => {
           ...newCartDec,
         ],
       };
-
+    case "EMPTY_CART":
+      return {
+        addedItems: [],
+      };
     default:
       return state;
   }

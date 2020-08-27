@@ -36,7 +36,13 @@ const CartPage = (props) => {
   //Code for handling model
   const [modal, setModal] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+    props.dispatch({
+      type: "EMPTY_CART",
+    });
+    props.handleDrawerClose();
+  };
   return (
     <div
       style={{
