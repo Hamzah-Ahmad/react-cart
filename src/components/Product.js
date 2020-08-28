@@ -42,7 +42,7 @@ const Product = (props) => {
           margin: "10px",
         }}
       >
-        <CardImg src={product.image} alt="Product" style={{ width: "100%" }} />
+        <CardImg src={product.image} alt="Product" className="card-img" />
         <CardBody>
           <CardTitle>{product.name}</CardTitle>
           <CardText>
@@ -51,7 +51,7 @@ const Product = (props) => {
             <strong>${product.price}</strong>
           </CardText>
 
-          <Button onClick={addFunc} outline color="info">
+          <Button onClick={addFunc} color="info">
             Add To Cart
           </Button>
         </CardBody>

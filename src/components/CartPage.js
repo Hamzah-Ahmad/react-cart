@@ -22,6 +22,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const CartPage = (props) => {
   const [total, setTotal] = useState(0);
+  const [finalCost, setFinalCost] = useState(0);
 
   useEffect(() => {
     setTotal(
@@ -38,6 +39,10 @@ const CartPage = (props) => {
 
   const toggle = () => {
     setModal(!modal);
+  };
+  const checkout = () => {
+    toggle();
+    setFinalCost(total);
     props.dispatch({
       type: "EMPTY_CART",
     });
@@ -161,8 +166,8 @@ const CartPage = (props) => {
                     <span>
                       <img
                         src={item.product.image}
-                        // width={10}
-                        // height={10}
+                        width={90}
+                        height={60}
                         className="cart-img"
                         alt={item.product.name}
                       />
@@ -222,7 +227,7 @@ const CartPage = (props) => {
             position: "absolute",
             bottom: 0,
           }}
-          onClick={toggle}
+          onClick={checkout}
           disabled={!props.addedItems.length > 0}
         >
           Complete Checkout
@@ -231,7 +236,15 @@ const CartPage = (props) => {
           <ModalHeader>Checkout</ModalHeader>
           <ModalBody>
             Your total is:{" "}
-            <span style={{ marginLeft: "5px", color: "green" }}>${total}</span>
+            <span
+              style={{
+                marginLeft: "5px",
+                color: "#17abcd",
+                fontWeight: "bold",
+              }}
+            >
+              ${finalCost}
+            </span>
             <div>Thank you for shopping with us!</div>
           </ModalBody>
         </Modal>

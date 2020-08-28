@@ -6,6 +6,20 @@
   height: 40vmin;
 }
 
+/* .card-img {
+  width: 100%;
+}
+
+.card-img:hover {
+  width: 120%;
+} */
+
+.card-img {
+  transition: all 0.2s ease-in-out;
+}
+.card-img:hover {
+  transform: scale(1.3);
+}
 .cart-img {
   padding: 0;
   margin: 0;

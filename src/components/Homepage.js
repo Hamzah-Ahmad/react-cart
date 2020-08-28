@@ -6,6 +6,8 @@ import Slider from "@material-ui/core/Slider";
 import Drawer from "@material-ui/core/Drawer";
 import { Container, Row, Col, Input, Label, CustomInput } from "reactstrap";
 import NavBar from "./NavBar";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 import {
   getAllProducts,
@@ -19,6 +21,22 @@ const Homepage = (props) => {
   const [size, setSize] = useState("");
   const [price, setPrice] = useState(320);
   const [open, setOpen] = useState(false);
+
+  const muiTheme = createMuiTheme({
+    overrides: {
+      MuiSlider: {
+        thumb: {
+          color: "#17abcd",
+        },
+        track: {
+          color: "#17abcd",
+        },
+        rail: {
+          color: "black",
+        },
+      },
+    },
+  });
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -61,7 +79,7 @@ const Homepage = (props) => {
   ];
 
   return (
-    <div style={{ scrollbarWidth: "none" }}>
+    <div style={{ backgroundColor: "#f8f9fa" }}>
       <NavBar handleDrawerOpen={handleDrawerOpen} />
       <Container>
         <Drawer
@@ -76,34 +94,45 @@ const Homepage = (props) => {
           <CartPage handleDrawerClose={handleDrawerClose} />
         </Drawer>
         <Row>
-          <Col xs="6" lg="2">
-            <h3 style={{ marginTop: "50px" }}>Filters:</h3>
-            <Label for="priceRange" style={{ marginTop: "20px" }}>
-              Max Price:{" "}
-              <span style={{ color: "#17abcd", marginLeft: "5px" }}>
-                ${price}
-              </span>
-            </Label>
-            <Slider
-              // tooltip="true"
-              // type="range"
-              // name="priceRange"
-              // id="priceRange"
-              // defaultValue="320"
-              aria-labelledby="discrete-slider"
-              valueLabelDisplay="auto"
-              onChange={(e, v) => {
-                console.log("test");
-                console.log(v);
-                setPrice(v);
+          <Col sm="12" lg="2">
+            <div
+              style={{
+                marginTop: "50px",
+                marginLeft: "10px",
+                marginRight: "10px",
               }}
-              step={10}
-              max={320}
-              min={110}
-              marks={marks}
-              defaultValue={320}
-            />
-            {/* <Row>
+            >
+              <h3>Filters:</h3>
+              <Label
+                for="priceRange"
+                style={{
+                  marginTop: "20px",
+                }}
+              >
+                <span style={{ marginRight: "5px" }}>Max Price: </span>${price}
+              </Label>
+              <ThemeProvider theme={muiTheme}>
+                <Slider
+                  // tooltip="true"
+                  // type="range"
+                  // name="priceRange"
+                  // id="priceRange"
+                  // defaultValue="320"
+                  aria-labelledby="discrete-slider"
+                  valueLabelDisplay="auto"
+                  onChange={(e, v) => {
+                    console.log("test");
+                    console.log(v);
+                    setPrice(v);
+                  }}
+                  step={10}
+                  max={320}
+                  min={110}
+                  marks={marks}
+                  defaultValue={320}
+                />
+              </ThemeProvider>
+              {/* <Row>
               <Col xs="6">
                 <small>$110</small>
               </Col>
@@ -112,25 +141,25 @@ const Homepage = (props) => {
               </Col>
             </Row> */}
 
-            <Label for="size" style={{ marginTop: "30px" }}>
-              Size:
-            </Label>
-            <Input
-              type="select"
-              name="select"
-              id="size"
-              // style={{ width: "40%" }}
-              onChange={(e) => {
-                setSize(e.target.value);
-              }}
-            >
-              <option value="">All Sizes</option>
-              <option value="S">Small</option>
-              <option value="M">Medium</option>
-              <option value="L">Large</option>
-              <option value="XL">XL</option>
-            </Input>
-            {/* <Select
+              <Label for="size" style={{ marginTop: "30px" }}>
+                Size:
+              </Label>
+              <Input
+                type="select"
+                name="select"
+                id="size"
+                // style={{ width: "40%" }}
+                onChange={(e) => {
+                  setSize(e.target.value);
+                }}
+              >
+                <option value="">All Sizes</option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">XL</option>
+              </Input>
+              {/* <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={""}
@@ -144,6 +173,7 @@ const Homepage = (props) => {
               <MenuItem value={"L"}>Thirty</MenuItem>
               <MenuItem value={"XL"}>Thirty</MenuItem>
             </Select> */}
+            </div>
           </Col>
           <Col xs="12" lg="10">
             <Row style={{ marginTop: "50px" }}>

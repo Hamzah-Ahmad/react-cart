@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  Badge,
   Button,
   Collapse,
   Navbar,
@@ -20,10 +19,21 @@ import {
   Dropdown,
 } from "reactstrap";
 import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { withStyles } from "@material-ui/core/styles";
 
 const NavBar = (props) => {
   const { addedItems } = props;
+  const StyledBadge = withStyles((theme) => ({
+    badge: {
+      right: -3,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+      backgroundColor: "#17abcd",
+      color: "#fff",
+    },
+  }))(Badge);
 
   // //Code For Collapse
   // const [isOpen, setIsOpen] = useState(false);
@@ -39,20 +49,32 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="navbar-dark bg-dark" dark expand="md">
         <Container>
           <h1
             style={{
               textDecoration: "none",
-              color: "#7c7c7d",
+              color: "#fff",
               fontSize: "30px",
             }}
           >
+            <i
+              className="fa fa-shopping-cart"
+              style={{ fontSize: "25px", marginRight: "10px" }}
+            ></i>
             ReactCart
           </h1>
           <Nav className="ml-auto" navbar>
             <IconButton onClick={props.handleDrawerOpen}>
-              <ShoppingCartIcon />
+              <StyledBadge
+                badgeContent={props.addedItems.reduce(
+                  (accumulator, currentValue) =>
+                    accumulator + currentValue.quantity,
+                  0
+                )}
+              >
+                <ShoppingCartIcon style={{ color: "#fff" }} />
+              </StyledBadge>
             </IconButton>
           </Nav>
           {/* Navbar */}
