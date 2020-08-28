@@ -101,23 +101,6 @@ const CartPage = (props) => {
                       <ListGroupItemText>
                         <div style={{ display: "flex", alignItems: "center" }}>
                           Quantity:
-                          {/* <Button
-                          outline
-                          color="danger"
-                          size="sm"
-                          onClick={() => {
-                            props.dispatch({
-                              type: "DECREASE_QUANTITY",
-                              payload: item.product,
-                            });
-                          }}
-                          style={{ borderRadius: "50px" }}
-                        >
-                          <i
-                            className="fa fa-minus"
-                            style={{ fontSize: "12px" }}
-                          ></i>
-                        </Button> */}
                           <IconButton
                             aria-label="delete"
                             onClick={() => {
@@ -130,23 +113,6 @@ const CartPage = (props) => {
                             <RemoveIcon />
                           </IconButton>
                           <span>{item.quantity}</span>
-                          {/* <Button
-                          outline
-                          color="warning"
-                          size="sm"
-                          onClick={() => {
-                            props.dispatch({
-                              type: "INCREASE_QUANTITY",
-                              payload: item.product,
-                            });
-                          }}
-                          style={{ marginLeft: "10px", borderRadius: "50px" }}
-                        >
-                          <i
-                            className="fa fa-plus"
-                            style={{ fontSize: "12px" }}
-                          ></i>
-                        </Button> */}
                           <IconButton
                             aria-label="delete"
                             onClick={() => {
@@ -160,8 +126,6 @@ const CartPage = (props) => {
                           </IconButton>
                         </div>
                       </ListGroupItemText>
-                      {/* </Col> */}
-                      {/* <Col xs="4"> */}
                     </span>
                     <span>
                       <img
@@ -173,8 +137,6 @@ const CartPage = (props) => {
                       />
                     </span>
                   </span>
-                  {/* </Col>
-                  </Row> */}
                 </ListGroupItem>
               ))}
             </ListGroup>
@@ -187,29 +149,6 @@ const CartPage = (props) => {
             >
               Total: ${total}
             </h3>
-            {/* 
-            <Button
-              size="lg"
-              color="info"
-              block
-              style={{
-                position: "absolute",
-                bottom: 0,
-              }}
-              onClick={toggle}
-            >
-              Complete Checkout
-            </Button>
-            <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader>Checkout</ModalHeader>
-              <ModalBody>
-                Your total is:{" "}
-                <span style={{ marginLeft: "5px", color: "green" }}>
-                  ${total}
-                </span>
-                <div>Thank you for shopping with us!</div>
-              </ModalBody>
-            </Modal> */}
           </div>
         ) : (
           <div>

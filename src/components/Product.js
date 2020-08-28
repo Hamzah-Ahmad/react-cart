@@ -38,7 +38,6 @@ const Product = (props) => {
       <Card
         style={{
           height: "30%",
-          //padding: "40px 0px 0px 20px",
           margin: "10px",
         }}
       >
