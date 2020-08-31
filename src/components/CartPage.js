@@ -144,7 +144,8 @@ const CartPage = (props) => {
               style={{
                 textAlign: "right",
                 paddingRight: "5%",
-                marginTop: "20px",
+                marginBottom: "20px",
+                paddingBottom: "50px",
               }}
             >
               Total: ${total}
