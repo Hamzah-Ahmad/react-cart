@@ -6,24 +6,7 @@ import Homepage from "./components/Homepage";
 import CartPage from "./components/CartPage";
 
 function App() {
-  return (
-    <BrowserRouter>
-      {/* <Link to="/">Main Page</Link>
-      <Link to="/cart">Shopping Cart</Link> */}
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/cart" component={CartPage} />
-      </Switch>
-    </BrowserRouter>
-  );
-}
-
-// eslint-disable-next-line
-{
-  /* <div className="App">
-         <CartPage /> 
-        <Homepage />
-      </div> */
+  return <Homepage />;
 }
 
 export default App;
